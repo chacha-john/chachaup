@@ -31,6 +31,15 @@
             </meta-data>
         </activity>
 
+        <activity
+            android:name=".Dashboard"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chachaup.chachaup.MainActivity" >
+            </meta-data>
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
