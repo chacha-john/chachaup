@@ -3,6 +3,7 @@ package com.chachaup.chachaup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,8 @@ public class SignUp extends AppCompatActivity {
     TextView mSignIn;
     @BindView(R.id.editTextPersonName)
     EditText mName;
+    @BindView(R.id.buttonSignUp)
+    Button mSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,14 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.sign_up);
         ButterKnife.bind(this);
 
+        mSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this, MainActivity.class);
+                Toast.makeText(SignUp.this,"Account created successfully...",Toast.LENGTH_LONG).show();
+                startActivity(intent);
+            }
+        });
         mSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
