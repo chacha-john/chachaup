@@ -18,8 +18,8 @@
 [Go Back to the top](#chachaup)
 
 # Designs
-![Sign up page](/app/src/main/res/drawable-v24/SignUp Page.png "Create account page")
-![Sign in page](/app/src/main/res/drawable-v24/Login Page.png "Login page")
+![Sign up page](/app/src/main/res/drawable-v24/SignUpPage.png "Create account page")
+![Sign in page](/app/src/main/res/drawable-v24/LoginPage.png "Login page")
 ![Dashboard page](/app/src/main/res/drawable-v24/Dashboard.png "Dashboard")
 
 <!-- # Screenshots
