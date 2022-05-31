@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -13,6 +15,10 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity{
     @BindView(R.id.buttonLogin)
     Button mLoginButton;
+    @BindView(R.id.editTextEmailLogin)
+    EditText mEmail;
+    @BindView(R.id.editTextPasswordLogin)
+    EditText mPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +29,13 @@ public class MainActivity extends AppCompatActivity{
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SignUp.class);
+                String email = mEmail.getText().toString();
+                String password = mPassword.getText().toString();
+                Intent intent = new Intent(MainActivity.this,Dashboard.class);
+                intent.putExtra("email",email);
+                intent.putExtra("password",password);
                 startActivity(intent);
+                Toast.makeText(MainActivity.this,"Signing in...", Toast.LENGTH_LONG).show();
 
             }
         });
