@@ -5,10 +5,8 @@
 # Table of Content
 
 + [Description](#description)
-+ [Designs](#designs)
-<!-- + [Screenshots](#screenshots) -->
-+ [Technology Used](#technology-used)
-<!-- + [Set up Instructions](#setup) -->
++ [Designs](#designs)<!-- + [Screenshots](#screenshots) -->
++ [Technology Used](#technology-used)<!-- + [Set up Instructions](#setup) -->
 + [Licence](#licence)
 + [Authors Info](#authors-Info)
 
