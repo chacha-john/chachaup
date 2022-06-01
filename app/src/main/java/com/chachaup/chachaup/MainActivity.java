@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity{
     EditText mPassword;
     @BindView(R.id.textViewSignUp)
     TextView mSignUp;
+    @BindView(R.id.textViewWarning)
+    TextView mWarning;
 
 //    private boolean isAllFieldsChecked;
 
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,SignUp.class);
-                Toast.makeText(MainActivity.this,"Taking you to sign up...",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"Taking you to sign up...",Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
@@ -45,13 +47,21 @@ public class MainActivity extends AppCompatActivity{
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = mEmail.getText().toString();
-                String password = mPassword.getText().toString();
-                Intent intent = new Intent(MainActivity.this,Dashboard.class);
-                intent.putExtra("email",email);
-                intent.putExtra("password",password);
-                startActivity(intent);
-                Toast.makeText(MainActivity.this,"Signing in...", Toast.LENGTH_LONG).show();
+                String userEmail = mEmail.getText().toString();
+                String userPassword = mPassword.getText().toString();
+                Intent intent = getIntent();
+                String email = intent.getStringExtra("email");
+                String pass = intent.getStringExtra("pass");
+                String name = intent.getStringExtra("name");
+
+                if(userEmail.equals(email) && userPassword.equals(pass)){
+                    Toast.makeText(MainActivity.this,"Signing in...", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(MainActivity.this, Dashboard.class);
+                    intent1.putExtra("name",name);
+                    startActivity(intent1);
+                } else{
+                    mWarning.setText(getString(R.string.warning));
+                }
 
             }
         });

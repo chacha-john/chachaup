@@ -32,8 +32,8 @@ public class Dashboard extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String email = intent.getStringExtra("email");
-        welcomeMessage.setText("Hi,"+ email);
+        String name = intent.getStringExtra("name");
+        welcomeMessage.setText("Hi,"+ name);
 
         DashboardArrayAdapter adapter = new DashboardArrayAdapter(this, android.R.layout.simple_list_item_1,meals,ingredients,recipes);
         mRecipesList.setAdapter(adapter);

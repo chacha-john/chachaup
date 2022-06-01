@@ -19,6 +19,10 @@ public class SignUp extends AppCompatActivity {
     TextView mSignIn;
     @BindView(R.id.editTextPersonName)
     EditText mName;
+    @BindView(R.id.editTextEmailSignUp)
+    EditText mEmail;
+    @BindView(R.id.editTextCreatePassword)
+    EditText mPassword;
     @BindView(R.id.buttonSignUp)
     Button mSignUp;
 
@@ -31,8 +35,14 @@ public class SignUp extends AppCompatActivity {
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name = mName.getText().toString();
+                String email = mEmail.getText().toString();
+                String password = mPassword.getText().toString();
                 Intent intent = new Intent(SignUp.this, MainActivity.class);
                 Toast.makeText(SignUp.this,"Account created successfully...",Toast.LENGTH_LONG).show();
+                intent.putExtra("email",email);
+                intent.putExtra("pass",password);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });
