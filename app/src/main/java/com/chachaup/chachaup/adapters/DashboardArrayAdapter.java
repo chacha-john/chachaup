@@ -12,10 +12,10 @@ public class DashboardArrayAdapter extends ArrayAdapter {
     private String[] mRecipes;
 
 
-    public DashboardArrayAdapter(Context mContext, int resource, String[] mMeals, String[] mIngredients, String[] mRecipes){
+    public DashboardArrayAdapter(Context mContext, int resource, String[] mMeals, String[] mRecipes){
         super(mContext, resource);
         this.mContext = mContext;
-        this.mIngredients = mIngredients;
+//        this.mIngredients = mIngredients;
         this.mMeals = mMeals;
         this.mRecipes = mRecipes;
 
