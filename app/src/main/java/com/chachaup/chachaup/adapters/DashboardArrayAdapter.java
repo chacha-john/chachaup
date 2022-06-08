@@ -1,4 +1,4 @@
-package com.chachaup.chachaup;
+package com.chachaup.chachaup.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
