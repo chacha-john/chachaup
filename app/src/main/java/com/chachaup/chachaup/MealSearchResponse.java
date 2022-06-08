@@ -3,6 +3,8 @@ package com.chachaup.chachaup;
 
 import java.util.List;
 import javax.annotation.Generated;
+
+import com.chachaup.chachaup.models.Meal;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
