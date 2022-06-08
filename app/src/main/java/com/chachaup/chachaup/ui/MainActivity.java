@@ -1,4 +1,4 @@
-package com.chachaup.chachaup;
+package com.chachaup.chachaup.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.chachaup.chachaup.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
