@@ -5,8 +5,10 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface MealDBApi {
-    @GET("search")
+    @GET("/search.php")
     Call<MealSearchResponse> getMeals(
-            @Query("strMeal") String mealName
+            @Query("s") String mealName
+
     );
 }
+//ww.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
