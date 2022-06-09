@@ -14,11 +14,11 @@
 <p>A recipe application where users can query recipes by name of food or ingredients. to have suggestions on meals they can try out.</p>
 
 [Go Back to the top](#chachaup)
-
+<!-- 
 # Designs
 ![Sign up page](/app/src/main/res/drawable-v24/SignUpPage.png "Create account page")
 ![Sign in page](/app/src/main/res/drawable-v24/LoginPage.png "Login page")
-![Dashboard page](/app/src/main/res/drawable-v24/Dashboard.png "Dashboard")
+![Dashboard page](/app/src/main/res/drawable-v24/Dashboard.png "Dashboard") -->
 
 <!-- # Screenshots
 ![Sign up page](/src/main/resources/public/images/luku.png "Landing page")
@@ -32,8 +32,14 @@
 * Figma
 
 
-<!-- [How to set up](#setup)
-#### In PSQL:
+[How to set up](#setup)
+* The base url for the api is https://www.themealdb.com/api/json/v1/1/
+* The search meal endpoint is search.php?s="meal"
+* Install the application and navigate to search a meal.
+* Enter a meal whose recipe you want and click find recipe
+* You will recieve a detailed list on how to prepare your favorite meal.
+
+<!--#### In PSQL:
 * CREATE DATABASE rinews; 
 
 * CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, name VARCHAR, phone VARCHAR, address VARCHAR, email VARCHAR, position VARCHAR, role VARCHAR, departmentId int);
