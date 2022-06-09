@@ -1,5 +1,5 @@
 
-package com.chachaup.chachaup;
+package com.chachaup.chachaup.models;
 
 import java.util.List;
 import javax.annotation.Generated;

@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity{
 
                 if(userEmail.equals(email) && userPassword.equals(pass)){
                     Toast.makeText(MainActivity.this,"Signing in...", Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(MainActivity.this, Dashboard.class);
+                    Intent intent1 = new Intent(MainActivity.this, MealSearchActivity.class);
                     intent1.putExtra("name",name);
                     startActivity(intent1);
                 } else{

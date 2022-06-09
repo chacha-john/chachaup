@@ -31,7 +31,7 @@ public class MealSearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MealSearchActivity.this, MealsActivity.class);
-                intent.putExtra("query",mMealName.getText().toString());
+                intent.putExtra("meal",mMealName.getText().toString());
                 Toast.makeText(MealSearchActivity.this,"Searching meal...",Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
