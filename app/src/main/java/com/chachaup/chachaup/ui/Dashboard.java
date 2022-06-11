@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.chachaup.chachaup.adapters.DashboardArrayAdapter;
 import com.chachaup.chachaup.R;
 
 import butterknife.BindView;
