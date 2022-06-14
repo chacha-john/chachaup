@@ -1,7 +1,6 @@
 package com.chachaup.chachaup.ui;
 
-import android.content.Intent;
-import android.net.Uri;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,11 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.chachaup.chachaup.Constants;
 import com.chachaup.chachaup.R;
 import com.chachaup.chachaup.models.Meal;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -22,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class MealDetailFragment extends Fragment {
+public class MealDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.mealName)
     TextView mTextView;
     @BindView(R.id.areaTextView) TextView mAreaTextView;
@@ -30,6 +34,8 @@ public class MealDetailFragment extends Fragment {
     @BindView(R.id.youtubeTextView) TextView mYoutube;
     @BindView(R.id.mealImage)
     ImageView mMealImage;
+    @BindView(R.id.saveMealButton)
+    Button mSaveMealButton;
 
     private Meal meal;
 
@@ -65,14 +71,20 @@ public class MealDetailFragment extends Fragment {
         mInstructions.setText(meal.getStrInstructions());
         mTextView.setText(meal.getStrMeal());
         mYoutube.setText(meal.getStrYoutube());
+
+        mYoutube.setOnClickListener(this);
+        mSaveMealButton.setOnClickListener(this);
         return view;
     }
 
-//    public void onClick(View v){
-//        if (v == mYoutube){
-//            Intent youtubeIntent = new Intent(Intent.ACTION_VIEW,
-//                    Uri.parse(meal.getStrYoutube()));
-//            startActivity(youtubeIntent);
-//        }
-//    }
+    @Override
+    public void onClick(View v) {
+        if (v == mSaveMealButton){
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_MEALS);
+            restaurantRef.push().setValue(meal);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
