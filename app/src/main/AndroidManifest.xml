@@ -16,8 +16,11 @@
         android:theme="@style/Theme.ChachaUp"
         tools:targetApi="31">
         <activity
-            android:name=".MealDetailActivity"
+            android:name=".ui.SavedRecipeListActivity"
             android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ui.MealDetailActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".ui.MainActivity"
             android:exported="false">
@@ -30,21 +33,21 @@
             <!-- </intent-filter> -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity"></meta-data>
+                android:value="com.chachaup.chachaup.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.SignUp"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity"></meta-data>
+                android:value="com.chachaup.chachaup.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.Dashboard"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity"></meta-data>
+                android:value="com.chachaup.chachaup.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.MealSearchActivity"
@@ -64,14 +67,14 @@
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity"></meta-data>
+                android:value="com.chachaup.chachaup.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.MealDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity"></meta-data>
+                android:value="com.chachaup.chachaup.ui.MainActivity" />
         </activity>
 
         <meta-data
