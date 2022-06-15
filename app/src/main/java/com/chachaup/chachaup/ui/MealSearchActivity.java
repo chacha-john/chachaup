@@ -28,6 +28,7 @@ public class MealSearchActivity extends AppCompatActivity implements View.OnClic
     Button mFindMeal;
     @BindView(R.id.editTextMealName)
     EditText mMealName;
+    @BindView(R.id.buttonSavedMeals) Button mSavedMeals;
 
     private DatabaseReference mSearchedMeal;
     private ValueEventListener mSearchedMealListener;
@@ -59,6 +60,7 @@ public class MealSearchActivity extends AppCompatActivity implements View.OnClic
         ButterKnife.bind(this);
 
         mFindMeal.setOnClickListener(this);
+        mSavedMeals.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
@@ -69,6 +71,11 @@ public class MealSearchActivity extends AppCompatActivity implements View.OnClic
             Intent intent = new Intent(MealSearchActivity.this, MealsActivity.class);
             intent.putExtra("meal",meal);
             Toast.makeText(MealSearchActivity.this,"Searching meal...",Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }
+
+        if (v == mSavedMeals){
+            Intent intent = new Intent(MealSearchActivity.this, SavedRecipeListActivity.class);
             startActivity(intent);
         }
     }
