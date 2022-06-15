@@ -26,35 +26,10 @@ import butterknife.ButterKnife;
 public class MealSearchActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.buttonFindMeal)
     Button mFindMeal;
-    @BindView(R.id.editTextMealName)
-    EditText mMealName;
     @BindView(R.id.buttonSavedMeals) Button mSavedMeals;
-
-    private DatabaseReference mSearchedMeal;
-    private ValueEventListener mSearchedMealListener;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        mSearchedMeal = FirebaseDatabase
-                .getInstance()
-                        .getReference()
-                                .child(Constants.FIREBASE_CHILD_SEARCHED_MEAL);
-
-        mSearchedMealListener = mSearchedMeal.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot shot: snapshot.getChildren()){
-                    String meal = shot.getValue().toString();
-                    Log.d("Meal updated", "Meal: " + meal);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_meal);
         ButterKnife.bind(this);
@@ -65,11 +40,7 @@ public class MealSearchActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v == mFindMeal){
-            String meal = mMealName.getText().toString();
-
-            saveMealToFirebase(meal);
             Intent intent = new Intent(MealSearchActivity.this, MealsActivity.class);
-            intent.putExtra("meal",meal);
             Toast.makeText(MealSearchActivity.this,"Searching meal...",Toast.LENGTH_SHORT).show();
             startActivity(intent);
         }
@@ -80,13 +51,4 @@ public class MealSearchActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    private void saveMealToFirebase(String meal){
-        mSearchedMeal.push().setValue(meal);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedMeal.removeEventListener(mSearchedMealListener);
-    }
 }
