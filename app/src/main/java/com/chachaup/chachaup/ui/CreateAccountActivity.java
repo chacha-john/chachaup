@@ -39,7 +39,7 @@ public class SignUp extends AppCompatActivity {
                 String name = mName.getText().toString();
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
-                Intent intent = new Intent(SignUp.this, MainActivity.class);
+                Intent intent = new Intent(SignUp.this, LoginActivity.class);
                 Toast.makeText(SignUp.this,"Account created successfully...",Toast.LENGTH_LONG).show();
                 intent.putExtra("email",email);
                 intent.putExtra("pass",password);
@@ -50,7 +50,7 @@ public class SignUp extends AppCompatActivity {
         mSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignUp.this, MainActivity.class);
+                Intent intent = new Intent(SignUp.this, LoginActivity.class);
                 Toast.makeText(SignUp.this,"Taking you to sign in...",Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
