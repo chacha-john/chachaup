@@ -2,33 +2,25 @@ package com.chachaup.chachaup.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.chachaup.chachaup.Constants;
 import com.chachaup.chachaup.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MealSearchActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.buttonFindMeal)
     Button mFindMeal;
     @BindView(R.id.buttonSavedMeals) Button mSavedMeals;
@@ -59,13 +51,13 @@ public class MealSearchActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v == mFindMeal){
-            Intent intent = new Intent(MealSearchActivity.this, MealsActivity.class);
-            Toast.makeText(MealSearchActivity.this,"Searching meal...",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, MealsActivity.class);
+            Toast.makeText(MainActivity.this,"Searching meal...",Toast.LENGTH_SHORT).show();
             startActivity(intent);
         }
 
         if (v == mSavedMeals){
-            Intent intent = new Intent(MealSearchActivity.this, SavedRecipeListActivity.class);
+            Intent intent = new Intent(MainActivity.this, SavedRecipeListActivity.class);
             startActivity(intent);
         }
     }
@@ -89,7 +81,7 @@ public class MealSearchActivity extends AppCompatActivity implements View.OnClic
 
     private void logout(){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(MealSearchActivity.this, LoginActivity.class);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
