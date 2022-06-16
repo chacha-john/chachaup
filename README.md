@@ -26,8 +26,16 @@
 * Figma
 
 
-<!-- [How to set up](#setup)
-#### In PSQL:
+[How to set up](#setup)
+* Android Studio
+* Java
+* Gradle
+* Fork then clone the git repository
+* Run the application on Android studio.
+* Run the application locally.
+
+
+<!-- #### In PSQL:
 * CREATE DATABASE rinews; 
 
 * CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, name VARCHAR, phone VARCHAR, address VARCHAR, email VARCHAR, position VARCHAR, role VARCHAR, departmentId int);
