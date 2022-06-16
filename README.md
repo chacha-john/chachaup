@@ -5,7 +5,6 @@
 # Table of Content
 
 + [Description](#description)
-+ [Designs](#designs)<!-- + [Screenshots](#screenshots) -->
 + [Technology Used](#technology-used)<!-- + [Set up Instructions](#setup) -->
 + [Licence](#licence)
 + [Authors Info](#authors-Info)
@@ -14,11 +13,6 @@
 <p>A recipe application where users can query recipes by name of food or ingredients. to have suggestions on meals they can try out.</p>
 
 [Go Back to the top](#chachaup)
-
-# Designs
-![Sign up page](/app/src/main/res/drawable-v24/SignUpPage.png "Create account page")
-![Sign in page](/app/src/main/res/drawable-v24/LoginPage.png "Login page")
-![Dashboard page](/app/src/main/res/drawable-v24/Dashboard.png "Dashboard")
 
 <!-- # Screenshots
 ![Sign up page](/src/main/resources/public/images/luku.png "Landing page")
