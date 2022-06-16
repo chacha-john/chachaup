@@ -44,20 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
         app:layout_constraintVertical_bias="0.11" />
-
-    <TextView
-        android:id="@+id/textViewEnterFullNameSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light_italic"
-        android:inputType="textPersonName"
-        android:text="Enter your full name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
-        app:layout_constraintVertical_bias="0.187" />
+    
 
     <EditText
         android:id="@+id/editTextPersonName"
@@ -65,7 +52,7 @@
         android:layout_height="40dp"
         android:background="@color/text_box_color"
         android:ems="10"
-        android:hint="John Doe"
+        android:hint="Enter your full name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,26 +61,13 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
         app:layout_constraintVertical_bias="0.226" />
 
-    <TextView
-        android:id="@+id/textViewEnterEmailSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light_italic"
-        android:text="Enter your email address"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
-        app:layout_constraintVertical_bias="0.286" />
-
     <EditText
         android:id="@+id/editTextEmailSignUp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:background="@color/text_box_color"
         android:ems="10"
-        android:hint="sample@test.com"
+        android:hint="Enter your email address"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,18 +76,6 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
         app:layout_constraintVertical_bias="0.327" />
 
-    <TextView
-        android:id="@+id/textViewEnterPhoneSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light_italic"
-        android:text="Enter your phone number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
-        app:layout_constraintVertical_bias="0.389" />
 
     <EditText
         android:id="@+id/editTextEnterPhoneSignUp"
@@ -121,7 +83,7 @@
         android:layout_height="40dp"
         android:background="@color/text_box_color"
         android:ems="10"
-        android:hint="0712345678"
+        android:hint="Enter your phone"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,17 +92,6 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
         app:layout_constraintVertical_bias="0.432" />
 
-    <TextView
-        android:id="@+id/textViewCreatePassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light_italic"
-        android:text="Create a password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewSignUp" />
 
     <EditText
         android:id="@+id/editTextCreatePassword"
@@ -148,7 +99,7 @@
         android:layout_height="40dp"
         android:background="@color/text_box_color"
         android:ems="10"
-        android:hint="enter password"
+        android:hint="Enter password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -157,18 +108,6 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
         app:layout_constraintVertical_bias="0.545" />
 
-    <TextView
-        android:id="@+id/textViewRepeatPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light_italic"
-        android:text="Re-Enter your password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
-        app:layout_constraintVertical_bias="0.601" />
 
     <EditText
         android:id="@+id/editTextRepeatPassword"
@@ -176,7 +115,7 @@
         android:layout_height="40dp"
         android:background="@color/text_box_color"
         android:ems="10"
-        android:hint="re-enter password"
+        android:hint="Confirm password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -211,6 +150,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
         app:layout_constraintVertical_bias="0.803" />
+
+    <ProgressBar
+        android:id="@+id/progressBarCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSignUp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:progressBackgroundTint="@color/teal_700"
+        android:progress="20"
+        app:layout_constraintVertical_bias="0.896" />
+
+    <TextView
+        android:id="@+id/textViewLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
