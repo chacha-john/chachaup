@@ -13,6 +13,8 @@ import com.chachaup.chachaup.Constants;
 import com.chachaup.chachaup.R;
 import com.chachaup.chachaup.models.Meal;
 import com.chachaup.chachaup.ui.MealDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,7 +56,9 @@ public class FirebaseMealViewHolder extends RecyclerView.ViewHolder implements V
     @Override
     public void onClick(View v) {
         final ArrayList<Meal> meals = new ArrayList<>();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEALS);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEALS).child(uid);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
