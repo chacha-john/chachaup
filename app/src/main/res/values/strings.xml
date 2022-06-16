@@ -4,4 +4,6 @@
     <string name="sign_in">Already have an account? <a href="">Sign in here!</a></string>
     <string name="warning">Incorrect email or password!</string>
     <string name="searchmeal">SearchMeal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
