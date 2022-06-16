@@ -18,63 +18,43 @@
         <activity
             android:name=".ui.SavedRecipeListActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".ui.MealDetailActivity"-->
-<!--            android:exported="false" />-->
+
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.CreateAccountActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chachaup.chachaup.ui.LoginActivity" />
+        </activity>
         <activity
             android:name=".ui.MainActivity"
             android:exported="false">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity" />
-        </activity>
-        <activity
-            android:name=".ui.SignUp"
-            android:exported="false">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity" />
-        </activity>
-        <activity
-            android:name=".ui.Dashboard"
-            android:exported="false">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity" />
-        </activity>
-        <activity
-            android:name=".ui.MealSearchActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <!-- <meta-data -->
-            <!-- android:name="android.support.PARENT_ACTIVITY" -->
-            <!-- android:value="com.chachaup.chachaup.ui.MainActivity" > -->
-            <!-- </meta-data> -->
+             <meta-data
+             android:name="android.support.PARENT_ACTIVITY"
+             android:value="com.chachaup.chachaup.ui.LoginActivity" >
+             </meta-data>
         </activity>
         <activity
             android:name=".ui.MealsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity" />
+                android:value="com.chachaup.chachaup.ui.LoginActivity" />
         </activity>
         <activity
             android:name=".ui.MealDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chachaup.chachaup.ui.MainActivity" />
+                android:value="com.chachaup.chachaup.ui.LoginActivity" />
         </activity>
 
         <meta-data
