@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.chachaup.chachaup.Constants;
 import com.chachaup.chachaup.R;
 import com.chachaup.chachaup.models.Meal;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -80,11 +82,21 @@ public class MealDetailFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (v == mSaveMealButton){
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_MEALS);
-            restaurantRef.push().setValue(meal);
+                    .getReference(Constants.FIREBASE_CHILD_MEALS)
+                    .child(uid);
+
+            DatabaseReference reference = restaurantRef.push();
+            String pushId = reference.getKey();
+            meal.setPushId(pushId);
+            reference.setValue(meal);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+
+
         }
     }
 }

@@ -96,6 +96,8 @@ public class Meal {
     @Expose
     private String strMeasure10;
 
+    private String pushId;
+
     /**
      * No args constructor for use in serialization
      * 
@@ -164,6 +166,14 @@ public class Meal {
         this.strMeasure8 = strMeasure8;
         this.strMeasure9 = strMeasure9;
         this.strMeasure10 = strMeasure10;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     public String getIdMeal() {
