@@ -21,7 +21,7 @@
         android:id="@+id/welcomeMessageSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="@font/dosis_light"
         android:text="Wecome to ChachaUp's"
         android:textSize="30dp"
         android:textColor="@color/ghost_white"
