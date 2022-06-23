@@ -15,11 +15,6 @@
 
 [Go Back to the top](#chachaup)
 
-# Designs
-![Sign up page](/app/src/main/res/drawable-v24/SignUpPage.png "Create account page")
-![Sign in page](/app/src/main/res/drawable-v24/LoginPage.png "Login page")
-![Dashboard page](/app/src/main/res/drawable-v24/Dashboard.png "Dashboard")
-
 <!-- # Screenshots
 ![Sign up page](/src/main/resources/public/images/luku.png "Landing page")
 ![Sign in page](/src/main/resources/public/images/luku2.png "Add sighting page")
