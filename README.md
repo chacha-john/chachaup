@@ -30,7 +30,7 @@
 * Android Studio
 * Java
 * Gradle
-* Fork then clone the git repository [here](git@github.com:chacha-john/chachaup.git)
+* Fork then clone the git repository [here](https://github.com/chacha-john/chachaup.git)
 * Run the application on Android studio.
 * Run the application locally.
 
