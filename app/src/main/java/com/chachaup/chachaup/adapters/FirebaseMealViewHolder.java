@@ -1,5 +1,7 @@
 package com.chachaup.chachaup.adapters;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -13,6 +15,7 @@ import com.chachaup.chachaup.Constants;
 import com.chachaup.chachaup.R;
 import com.chachaup.chachaup.models.Meal;
 import com.chachaup.chachaup.ui.MealDetailActivity;
+import com.chachaup.chachaup.utils.ItemTouchHelperViewHolder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,9 +32,13 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FirebaseMealViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseMealViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, ItemTouchHelperViewHolder {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     View mView;
     Context mContext;
+    public ImageView recipeImageView;
 
     public FirebaseMealViewHolder(View itemView){
         super(itemView);
@@ -42,15 +49,14 @@ public class FirebaseMealViewHolder extends RecyclerView.ViewHolder implements V
     }
 
     public void bindMeal(Meal meal){
-        ImageView recipeImageView = (ImageView) mView.findViewById(R.id.mealImageView);
+        recipeImageView = (ImageView) mView.findViewById(R.id.mealImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.mealNameTextView);
         TextView categoryTextView = (TextView) mView.findViewById(R.id.categoryTextView);
-        TextView instructionsTextView = (TextView) mView.findViewById(R.id.instructionsTextView);
 
         Picasso.get().load(meal.getStrMealThumb()).into(recipeImageView);
+
         nameTextView.setText(meal.getStrMeal());
         categoryTextView.setText(meal.getStrCategory());
-        instructionsTextView.setText(meal.getStrInstructions());
     }
 
     @Override
@@ -81,4 +87,20 @@ public class FirebaseMealViewHolder extends RecyclerView.ViewHolder implements V
             }
         });
     }
+
+    @Override
+    public void onItemSelected() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, R.animator.drag_scale_on);
+        set.setTarget(itemView);
+        set.start();
+
+    }
+
+    @Override
+    public void onItemClear() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, R.animator.drag_scale_off);
+        set.setTarget(itemView);
+        set.start();
+    }
+
 }

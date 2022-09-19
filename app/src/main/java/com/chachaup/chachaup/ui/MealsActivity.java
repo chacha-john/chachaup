@@ -115,6 +115,7 @@ public class MealsActivity extends AppCompatActivity {
 
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
     }
 
     private void addToSharedPreferences(String meal){

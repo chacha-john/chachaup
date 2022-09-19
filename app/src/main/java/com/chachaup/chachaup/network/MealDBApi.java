@@ -11,4 +11,3 @@ public interface MealDBApi {
     Call<MealSearchResponse> getMeals(
             @Query("s") String mealName);
 }
-//www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata

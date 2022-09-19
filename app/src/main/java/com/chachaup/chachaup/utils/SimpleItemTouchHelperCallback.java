@@ -1,9 +1,8 @@
 package com.chachaup.chachaup.utils;
 
-import static androidx.recyclerview.widget.ItemTouchHelper.Callback.makeMovementFlags;
-
 import android.support.annotation.NonNull;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +14,26 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback{
         mAdapter = adapter;
     }
 
+    @Override
+    public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
+        if (actionState != ItemTouchHelper.ACTION_STATE_IDLE){
+            if (viewHolder instanceof  ItemTouchHelperViewHolder){
+                ItemTouchHelperViewHolder touchHelperViewHolder = (ItemTouchHelperViewHolder) viewHolder;
+                touchHelperViewHolder.onItemSelected();
+            }
+        }
+        super.onSelectedChanged(viewHolder, actionState);
+    }
+
+    @Override
+    public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+        super.clearView(recyclerView, viewHolder);
+
+        if (viewHolder instanceof ItemTouchHelperViewHolder){
+            ItemTouchHelperViewHolder touchHelperViewHolder = (ItemTouchHelperViewHolder) viewHolder;
+            touchHelperViewHolder.onItemClear();
+        }
+    }
 
     @Override
     public boolean isLongPressDragEnabled() {

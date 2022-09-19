@@ -2,6 +2,7 @@ package com.chachaup.chachaup.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,18 +21,23 @@ import android.widget.TextView;
 
 import com.chachaup.chachaup.Constants;
 import com.chachaup.chachaup.R;
+import com.chachaup.chachaup.adapters.FirebaseMealListAdapter;
 import com.chachaup.chachaup.adapters.FirebaseMealViewHolder;
 import com.chachaup.chachaup.adapters.MealsListAdapter;
 import com.chachaup.chachaup.models.Meal;
 import com.chachaup.chachaup.models.MealSearchResponse;
 import com.chachaup.chachaup.network.MealDBApi;
 import com.chachaup.chachaup.network.MealDBClient;
+import com.chachaup.chachaup.utils.ItemTouchHelperAdapter;
+import com.chachaup.chachaup.utils.OnStartDragListener;
+import com.chachaup.chachaup.utils.SimpleItemTouchHelperCallback;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.List;
 import java.util.zip.Inflater;
@@ -44,7 +50,9 @@ import retrofit2.Response;
 
 public class SavedRecipeListActivity extends AppCompatActivity {
     private DatabaseReference mMealReference;
-    private FirebaseRecyclerAdapter<Meal, FirebaseMealViewHolder> mFirebaseAdapter;
+    private FirebaseMealListAdapter mFirebaseAdapter;
+    private ItemTouchHelper mItemTouchHelper;
+
 
     @BindView(R.id.rv)
     RecyclerView mRecyclerView;
@@ -66,16 +74,11 @@ public class SavedRecipeListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meals);
         ButterKnife.bind(this);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
 
-        mMealReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_MEALS)
-                .child(uid);
         setUpFirebaseAdapter();
         hideProgressBar();
-        showMeals();
+        showRecipe();
+
     }
 
     @Override
@@ -113,25 +116,26 @@ public class SavedRecipeListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+//        mMealReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MEALS).child(uid);
+        Query query = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_MEALS)
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
+
         FirebaseRecyclerOptions<Meal> options = new FirebaseRecyclerOptions.Builder<Meal>()
-                .setQuery(mMealReference, Meal.class)
+                .setQuery(query, Meal.class)
                 .build();
 
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Meal, FirebaseMealViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull FirebaseMealViewHolder holder, int position, @NonNull Meal model) {
-                holder.bindMeal(model);
-            }
+        mFirebaseAdapter = new FirebaseMealListAdapter(options, query, this::onStartDrag, this);
 
-            @NonNull
-            @Override
-            public FirebaseMealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meal_item_drag, parent, false);
-                return new FirebaseMealViewHolder(view);
-            }
-        };
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+        mRecyclerView.setHasFixedSize(true);
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
     @Override
@@ -146,9 +150,6 @@ public class SavedRecipeListActivity extends AppCompatActivity {
         if (mFirebaseAdapter != null){
             mFirebaseAdapter.stopListening();
         }
-    }
-    private void showMeals(){
-        mRecyclerView.setVisibility(View.VISIBLE);
     }
 
     private void hideProgressBar(){
@@ -165,6 +166,7 @@ public class SavedRecipeListActivity extends AppCompatActivity {
         call.enqueue(new Callback<MealSearchResponse>() {
             @Override
             public void onResponse(Call<MealSearchResponse> call, Response<MealSearchResponse> response) {
+
                 hideProgressBar();
 
                 if (response.isSuccessful()){
@@ -195,5 +197,9 @@ public class SavedRecipeListActivity extends AppCompatActivity {
 
     private void showRecipe() {
         mRecyclerView.setVisibility(View.VISIBLE);
+    }
+
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder){
+        mItemTouchHelper.startDrag(viewHolder);
     }
 }

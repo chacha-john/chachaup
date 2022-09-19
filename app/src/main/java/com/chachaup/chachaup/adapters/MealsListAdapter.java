@@ -57,7 +57,6 @@ public class MealsListAdapter extends RecyclerView.Adapter<MealsListAdapter.Meal
         @BindView(R.id.mealNameTextView)
         TextView mMealTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
-        @BindView(R.id.instructionsTextView) TextView mInstructionsTextView;
 
         private Context mContext;
 
@@ -71,7 +70,6 @@ public class MealsListAdapter extends RecyclerView.Adapter<MealsListAdapter.Meal
         public void bindMeal(Meal meal){
             mMealTextView.setText(meal.getStrMeal());
             mCategoryTextView.setText(meal.getStrCategory());
-            mInstructionsTextView.setText(meal.getStrInstructions());
             Picasso.get().load(meal.getStrMealThumb()).into(mMealImageView);
         }
 

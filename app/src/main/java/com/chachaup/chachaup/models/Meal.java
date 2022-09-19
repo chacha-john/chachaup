@@ -10,6 +10,7 @@ import org.parceler.Parcel;
 @Parcel
 @Generated("jsonschema2pojo")
 public class Meal {
+    String index;
 
     @SerializedName("idMeal")
     @Expose
@@ -166,6 +167,15 @@ public class Meal {
         this.strMeasure8 = strMeasure8;
         this.strMeasure9 = strMeasure9;
         this.strMeasure10 = strMeasure10;
+        this.index = "not_specified";
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
     public String getPushId() {
